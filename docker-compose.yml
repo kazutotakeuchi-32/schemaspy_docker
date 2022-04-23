@@ -1,0 +1,55 @@
+version: "3.8"
+
+services:
+  db:
+    image: mysql:8.0
+    platform: linux/amd64
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: test
+      MYSQL_USER: prosody_user
+      MYSQL_PASSWORD: password
+      TZ: Asia/Tokyo
+      # MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      # # MYSQL_DATABASE: root
+      # MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      # MYSQL_ROOT_PASSWORD: "yes"
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password 
+    # command: --default-authentication-plugin=mysql_native_password  --enconding=utf8
+    # command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    # command:
+    #   - "mysqld"
+    #   - "--innodb_buffer_pool_size=400M"
+    #   - "--ft-min_word-len=2" # 2文字の全文検索を有効にする
+    #   - "--innodb_ft_min_token_size=2" # 2文字の全文検索を有効にする
+    #   - "--ft-stopword-file=''"
+
+  schemaspy:
+    build: ./schemaspy
+    image: schemaspy/schemaspy
+    depends_on:
+      - db
+    volumes:
+      - ./schemaspy/output:/output
+      - ./schemaspy/config/schemaspy.properties:/app/schemaspy.properties:ro
+    container_name: "schemaspy"
+    command: "java -jar schemaspy.jar -vizjs "
+    # command: "java -jar schemaspy.jar -connprops "characterEncoding\=utf-8"
+    links:
+      - db:db
+
+  nginx_schemaspy:
+    image: nginx:1.19.5-alpine
+    container_name: "nginx_schemaspy"
+    ports:
+      - "4000:80"
+    volumes:
+      - ./schemaspy/output:/usr/share/nginx/html:ro
+    depends_on:
+      - db
+
+
