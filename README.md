@@ -1,5 +1,8 @@
 ## Installation
 
+- mysql学習用総合環境
+- schemaspyのM1対応
+- [画面（コンテナ起動後）](http://localhost:4000/)
 
 ### インストール
 
@@ -57,8 +60,6 @@ schemaspy.p=<パスワードを設定>
 schemaspy.s=<スキーマ>
 
 ```
-
-
 
 ## Note
 
