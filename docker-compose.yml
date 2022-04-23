@@ -36,8 +36,10 @@ services:
     volumes:
       - ./schemaspy/output:/output
       - ./schemaspy/config/schemaspy.properties:/app/schemaspy.properties:ro
+      - ./schemaspy/config/start.sh:/app/start.sh:ro
     container_name: "schemaspy"
-    command: "java -jar schemaspy.jar -vizjs "
+    command: "/bin/sh /app/start.sh"
+    # command: "java -jar schemaspy.jar -vizjs "
     # command: "java -jar schemaspy.jar -connprops "characterEncoding\=utf-8"
     links:
       - db:db
