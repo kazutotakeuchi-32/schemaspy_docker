@@ -12,24 +12,24 @@ git clone https://github.com/kazutotakeuchi-32/schemaspy_docker.git
 ### コンテナ構築
 
 ```
-#build
+# build
 docker-compose build 
 
-＃データベースでテーブルを作成後でないとschemaspyとエラー
+＃ データベースでテーブルを作成後でないとschemaspyとエラー
 docker-compose up
 ```
 
 ### mysql接続
 
 ```
-DBコンテナ接続
-
+# DBコンテナ接続
 docker-compose exec db /bin/bash
 
-db接続
-
+# db接続
 mysql -u root -h db -p
 
+# 直接
+docker-compose exec db mysql -u root -p
 ```
 
 ### schemaspy
