@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   db:
-    image: mysql:8.0
+    build: ./mysql
     platform: linux/amd64
     ports:
       - "3306:3306"
@@ -18,6 +18,7 @@ services:
       # MYSQL_ROOT_PASSWORD: "yes"
     volumes:
       - ./data/mysql:/var/lib/mysql
+      - ./mysql/my.cnf:/etc/mysql/my.cnf
     command: --default-authentication-plugin=mysql_native_password 
     # command: --default-authentication-plugin=mysql_native_password  --enconding=utf8
     # command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
