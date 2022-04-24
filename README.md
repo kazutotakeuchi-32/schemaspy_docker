@@ -68,5 +68,11 @@ schemaspy.s=<スキーマ>
 
 ## Note
 
-[schemaspyドキュメント](https://schemaspy.readthedocs.io/en/latest/)
+ - [schemaspyドキュメント](https://schemaspy.readthedocs.io/en/latest/)
+ - [AppleシリコンMac上のDockerでSchemaspyを動かす方法](https://qiita.com/pnpk/items/d308d96ef933312f8d9a)
+ - [schemaspyをdocker-composeで動かす](https://takahashik.hatenablog.com/entry/2018/10/09/075957)
+ - [Check! mysqlのDockerコンテナにアクセスすると ER_NOT_SUPPORTED_AUTH_MODE エラーが出てしまうときの対処](https://qiita.com/dz_/items/ae7a0e5aad0ec9dd8ba7)
+ - [Compose における起動順の制御](http://docs.docker.jp/compose/startup-order.html)
+ - [【すぐわかる】シェルスクリプトのuntilの使い方](https://eng-entrance.com/linux-shellscript-until)
+ - [mysql日本語化](https://pgmemo.tokyo/data/archives/271.html)
 
