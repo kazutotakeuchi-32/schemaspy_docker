@@ -21,6 +21,11 @@ docker-compose build
 ＃ データベースでテーブルを作成後でないとschemaspyとエラー
 docker-compose up
 ```
+### コンテナ起動時フロー
+1. nginx_schemaspy,dbコンテナを先に起動
+2. dbコンテナでmysqlサーバを立ち上げ
+3. mysqlサーバに接続を確認後、schemaspyコンテナでコマンドを実行
+4. localhost:4000にschemaspyのページが表示される
 
 ### mysql接続
 
