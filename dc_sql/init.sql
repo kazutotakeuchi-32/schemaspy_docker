@@ -2,9 +2,7 @@
 -- has_many :sales
 -- has_many :logs
 
-DROP DATABSE `ec`  IF EXISTS `ec` :
-
-CREATE DATABSE IF NOT EXISTS `ec`;
+-- CREATE DATABSE IF NOT EXISTS `ec`;
 USE `ec`;
 
 CREATE TABLE IF NOT EXISTS `customers` (
@@ -47,7 +45,6 @@ CREATE TABLE IF NOT EXISTS `sales` (
   FOREIGN KEY  (product_id) REFERENCES products(product_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4  COMMENT='販売情報';
 
--- order_id,user_id,product_id,date_time,quantity,revenue,is_proper
 
 -- -- ログ
 -- has_many :customers(user_id)
@@ -63,4 +60,3 @@ CREATE TABLE IF NOT EXISTS `web_log` (
   PRIMARY KEY (cid)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4  COMMENT='ログ';
 
--- cid,user_id,device,session_count,media,date_time,page
