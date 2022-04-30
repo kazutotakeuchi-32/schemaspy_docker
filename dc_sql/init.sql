@@ -1,9 +1,11 @@
--- 顧客情報
--- has_many :sales
--- has_many :logs
+
 
 -- CREATE DATABSE IF NOT EXISTS `ec`;
 USE `ec`;
+
+-- 顧客情報
+-- has_many :sales
+-- has_many :logs
 
 CREATE TABLE IF NOT EXISTS `customers` (
   user_id int(11) NOT NULL AUTO_INCREMENT,
@@ -19,6 +21,7 @@ CREATE TABLE IF NOT EXISTS `customers` (
 
 -- 商品情報
 -- has_many :sales
+
 CREATE TABLE IF NOT EXISTS `products` (
   product_id int(11) NOT NULL AUTO_INCREMENT,
   product_name varchar(255) NOT NULL ,
@@ -46,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `sales` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4  COMMENT='販売情報';
 
 
--- -- ログ
+-- ログ
 -- has_many :customers(user_id)
 
 CREATE TABLE IF NOT EXISTS `web_log` (
