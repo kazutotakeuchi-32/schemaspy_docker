@@ -1,8 +1,12 @@
 #!bin/sh
 # set -e
 
-
-echo "Waiting for mysql"
+if [ -e "/output/index.html"  ]; then
+  echo "Output already exists"
+   rm -r /output/*
+else
+    echo "index.html does not exist"
+fi
 
 until mysql -h db -u root -ppassword &> /dev/null
 do
